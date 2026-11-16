@@ -1,0 +1,17 @@
+@model List<Course>
+<h1>Курсы</h1>
+<p><a asp-action="Create">Добавить курс</a></p>
+<table>
+    <tr><th>Название</th><th>Преподаватель</th><th>Действия</th></tr>
+    @foreach (Course course in Model)
+    {
+        <tr>
+            <td>@course.Title</td><td>@course.Teacher.Name</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@course.CourseId">Просмотр</a>
+                <a asp-action="Edit" asp-route-id="@course.CourseId">Редактировать</a>
+                <a asp-action="Delete" asp-route-id="@course.CourseId">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>

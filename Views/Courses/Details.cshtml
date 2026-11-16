@@ -1,0 +1,13 @@
+@model Course
+<h1>@Model.Title</h1>
+<p>ID курса: @Model.CourseId</p>
+<p>Преподаватель: <a asp-controller="Teachers" asp-action="Details" asp-route-id="@Model.TeacherId">@Model.Teacher.Name</a></p>
+<a asp-action="Edit" asp-route-id="@Model.CourseId">Редактировать курс</a>
+
+<h2>Студенты курса</h2>
+<ul>
+@foreach (Student student in Model.Students)
+{
+    <li><a asp-controller="Students" asp-action="Details" asp-route-id="@student.StudentId">@student.Name</a></li>
+}
+</ul>

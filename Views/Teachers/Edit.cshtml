@@ -1,0 +1,8 @@
+@model TeacherForm
+<h1>Редактирование преподавателя</h1>
+<form asp-action="Edit" asp-route-id="@ViewBag.ItemId" method="post">
+    <div asp-validation-summary="All" class="error"></div>
+    <p><label asp-for="Name">Имя</label><input asp-for="Name" /></p>
+    <button type="submit">Сохранить</button>
+    <a asp-action="Index">Отмена</a>
+</form>

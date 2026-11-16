@@ -1,0 +1,8 @@
+@model Student
+<h1>Удаление</h1>
+<p>Удалить студента «@Model.Name»?</p>
+<p>Будут удалены записи студента на курсы. Сами курсы останутся. Количество записей: @Model.Courses.Count.</p>
+<form asp-action="DeleteConfirmed" asp-route-id="@Model.StudentId" method="post">
+    <button type="submit">Удалить</button>
+    <a asp-action="Index">Отмена</a>
+</form>

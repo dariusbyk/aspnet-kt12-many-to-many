@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Учебный процесс</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 24px; }
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        label { display: block; margin-bottom: 6px; }
+        input, textarea, select { width: 320px; padding: 6px; }
+        input[type="checkbox"] { width: auto; }
+        button { padding: 7px 12px; }
+        .error { color: darkred; }
+    </style>
+</head>
+<body>
+    <nav><a asp-controller="Teachers" asp-action="Index">Преподаватели</a> | <a asp-controller="Courses" asp-action="Index">Курсы</a> | <a asp-controller="Students" asp-action="Index">Студенты</a></nav>
+    @RenderBody()
+</body>
+</html>

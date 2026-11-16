@@ -1,0 +1,8 @@
+@model Course
+<h1>Удаление</h1>
+<p>Удалить курс «@Model.Title»?</p>
+<p>Записи на курс будут удалены. Студенты и преподаватель останутся.</p>
+<form asp-action="DeleteConfirmed" asp-route-id="@Model.CourseId" method="post">
+    <button type="submit">Удалить</button>
+    <a asp-action="Index">Отмена</a>
+</form>

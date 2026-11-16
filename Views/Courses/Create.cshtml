@@ -1,0 +1,34 @@
+@model CourseForm
+<h1>Добавление курса</h1>
+@if (!ViewBag.HasTeachers)
+{
+    <p>Сначала <a asp-controller="Teachers" asp-action="Create">добавьте преподавателя</a>.</p>
+}
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="error"></div>
+    <p><label asp-for="Title">Название</label><input asp-for="Title" /></p>
+    <p>
+        <label asp-for="TeacherId">Преподаватель</label>
+        <select asp-for="TeacherId" asp-items="ViewBag.Teachers">
+            <option value="0">Выберите преподавателя</option>
+        </select>
+    </p>
+    <h2>Студенты курса</h2>
+    @foreach (Student student in ViewBag.Students)
+    {
+        <label>
+            @if (Model.StudentIds.Contains(student.StudentId))
+            {
+                <input type="checkbox" name="StudentIds" value="@student.StudentId" checked />
+            }
+            else
+            {
+                <input type="checkbox" name="StudentIds" value="@student.StudentId" />
+            }
+            @student.Name
+        </label>
+    }
+    <p>Отметьте студентов, которых нужно записать на курс.</p>
+    <button type="submit">Сохранить</button>
+    <a asp-action="Index">Отмена</a>
+</form>
